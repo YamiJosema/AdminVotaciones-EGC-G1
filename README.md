@@ -1,9 +1,9 @@
-<h1>Administración de Votaciones. Agora@US. Curso 2017-2018</h1>
+<h1>AdministraciÃ³n de Votaciones. Agora@US. Curso 2017-2018</h1>
 <ul>
 <li>Ana Aparicio Ramos</li>
 <li>Javier Centeno Vega</li>
-<li>Elvira García Ruiz</li>
-<li>Domingo Muñoz Daza</li>
-<li>Jose Manuel Palmero Hidalgo</li>
+<li>Elvira GarcÃ­a Ruiz</li>
+<li>Domingo MuÃ±oz Daza</li>
+<li>Jose Manuel Pallero Hidalgo</li>
 
 </ul>
