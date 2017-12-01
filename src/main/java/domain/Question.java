@@ -1,68 +1,83 @@
+
 package domain;
 
+import java.util.Collection;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.validation.Valid;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
+@Access(AccessType.PROPERTY)
 public class Question extends DomainEntity {
+
 	/**
 	 * @Class Question
 	 * @classDec La clase contiene los atributos que forman la entidad Question (pregunta), así como las relaciones
-	 * que tiene esta entidad con el resto de entidades del dominio. 
+	 *           que tiene esta entidad con el resto de entidades del dominio.
 	 * 
 	 */
-	// Attributes
-	private String text;
-	private Survey survey;
+
+	// Constructors -----------------------------------------------------------
 
 	public Question() {
 		super();
-		text = "";
 	}
 
-	// Methods
 
-	// Este atributo indica el texto que forma la question.
-	/**
-	 * 
-	 * @return Este metodo devuelve el texto de la question (pregunta).
-	 */
-	public String getText() {
-		return text;
-	}
-	/**
-	 * 
-	 * @param text es el texto que forma la question (pregunta).
-	 */
+	// Attributes -------------------------------------------------------------
 
-	public void setText(String text) {
-		this.text = text;
-	}
-	/**
-	 * 
-	 * @return Este metodo devuelve la id de la votación a la que pertenece la pregunta. 
-	 */
-	@ManyToOne
-	public Survey getSurvey() {
-		return survey;
-	}
-	/**
-	 * 
-	 * @param id es la id de una votación.
-	 */
-	public void setSurvey(Survey survey) {
-		this.survey = survey;
+	private String	title;
+	private String	description;
+
+
+	@NotBlank
+	public String getTitle() {
+		return this.title;
 	}
 
-	// Método toString para la representación como cadena de la clase entidad.
-
-	/**
-	 * 
-	 * @return Este metodo devuelve la representación como cadena de la entidad question (pregunta).
-	 */
-	@Override
-	public String toString() {
-		return "Question [text=" + text + "]";
+	public void setTitle(final String title) {
+		this.title = title;
 	}
 
+	@NotBlank
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(final String description) {
+		this.description = description;
+	}
+
+
+	// Relationships ----------------------------------------------------------
+
+	private Collection<Option>	options;
+	private Poll				poll;
+
+
+	@Valid
+	@OneToMany(mappedBy = "question")
+	public Collection<Option> getOptions() {
+		return this.options;
+	}
+
+	public void setOptions(final Collection<Option> options) {
+		this.options = options;
+	}
+
+	@Valid
+	@ManyToOne(optional = false)
+	public Poll getPoll() {
+		return this.poll;
+	}
+
+	public void setPoll(final Poll poll) {
+		this.poll = poll;
+	}
 }
