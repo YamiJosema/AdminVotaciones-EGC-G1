@@ -1,5 +1,7 @@
+
 package services;
 
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,69 +9,59 @@ import org.springframework.util.Assert;
 
 import repositories.QuestionRepository;
 import domain.DomainEntity;
+import domain.Poll;
 import domain.Question;
-import domain.Survey;
 
 @Service
-public class QuestionService extends DomainEntity{
+public class QuestionService extends DomainEntity {
 
 	//Repository
 	@Autowired
-	private QuestionRepository questionRepository;
+	private QuestionRepository	questionRepository;
 	@Autowired
-	private SurveyService surveyService;
+	private PollService			pollService;
+
 
 	//Methods
-	//Creación de una question, a la que le pasamos la id del survey.
-	/**
-	 * 
-	 * @param surveyId almacena la id del survery (votación).
-	 * @return Este metodo devuelve una question (pregunta).
-	 */
-	public Question create(Integer surveyId){
-		Question o = new Question();
-		Survey survey = surveyService.findOne(surveyId);
-		o.setSurvey(survey);
-		questionRepository.saveAndFlush(o);
-		return o;
+
+	public Question create(final Integer pollId, final String description) {
+		final Question question = new Question();
+
+		final Poll poll = this.pollService.findOne(pollId);
+		question.setPoll(poll);
+		question.setDescription(description);
+
+		this.questionRepository.saveAndFlush(question);
+		return question;
 	}
 
-	//Creación de una question con un texto que le pasamos como parámetro. 
-	/**
-	 * 
-	 * @param question es el texto de una question (pregunta).
-	 * @return Este metodo devuelve una question (pregunta).
-	 */
-	public Question create(String question) {
-		Question o = new Question();
-		o.setText(question);
-		
-		questionRepository.saveAndFlush(o);
-		return o;
-	}
-
-	
-	//Método que crea y almacena una question, y devuelve la id de dicha question.
-	/**
-	 * 
-	 * @param question es un objeto de tipo Question (Pregunta).
-	 * @return Este metodo devuelve la id de la question creada.
-	 */
-	public int saveAndFlush(Question question) {
+	public int saveAndFlush(final Question question) {
 		Assert.notNull(question);
-		Question q2 = questionRepository.saveAndFlush(question);
-		int questionID = q2.getId();
+		final Question q2 = this.questionRepository.saveAndFlush(question);
+		final int questionID = q2.getId();
 		return questionID;
 	}
 
-	//Debuelve un objeto de tipo question cuya id es la id que se le pasa como
-	//parámetro.
-	/**
-	 * 
-	 * @param questionId es la id de una question.
-	 * @return Este metodo devuelve la question que ha sido identificada por su id.
-	 */
-	public Question findOne(int questionId) {
-		return questionRepository.findOne(questionId);
+	public Collection<Question> findAllFromPoll(final int pollId) {
+		final Poll poll = this.pollService.findOne(pollId);
+		return poll.getQuestions();
 	}
+
+	public Question findOne(final int questionId) {
+		return this.questionRepository.findOne(questionId);
+	}
+
+	public Collection<Question> findAll() {
+		return this.questionRepository.findAll();
+	}
+
+	public Question findOneToEdit(final int questionId) {
+		Question result;
+
+		result = this.findOne(questionId);
+		//		this.checkPrincipal(result);
+
+		return result;
+	}
+
 }
