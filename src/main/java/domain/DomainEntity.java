@@ -1,11 +1,11 @@
-/* DomainEntity.java
- *
+/*
+ * DomainEntity.java
+ * 
  * Copyright (C) 2014 Universidad de Sevilla
  * 
- * The use of this project is hereby constrained to the conditions of the 
- * TDG Licence, a copy of which you may download from 
+ * The use of this project is hereby constrained to the conditions of the
+ * TDG Licence, a copy of which you may download from
  * http://www.tdg-seville.info/License.html
- * 
  */
 
 package domain;
@@ -29,8 +29,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({
-	@Type(value=Survey.class, name="survey"),
-	@Type(value=Question.class, name="question")
+	@Type(value = Poll.class, name = "poll"), @Type(value = Question.class, name = "question")
 })
 public abstract class DomainEntity {
 
@@ -40,30 +39,31 @@ public abstract class DomainEntity {
 		super();
 	}
 
+
 	// Identification ---------------------------------------------------------
 
-	private int id;
-	private int version;
+	private int	id;
+	private int	version;
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(final int id) {
 		this.id = id;
 	}
-	
+
 	@Version
 	public int getVersion() {
-		return version;
+		return this.version;
 	}
 
-	public void setVersion(int version) {
+	public void setVersion(final int version) {
 		this.version = version;
 	}
-
 
 	// Equality ---------------------------------------------------------------
 
@@ -73,7 +73,7 @@ public abstract class DomainEntity {
 	}
 
 	@Override
-	public boolean equals(Object other) {
+	public boolean equals(final Object other) {
 		boolean result;
 
 		if (this == other)
