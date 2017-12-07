@@ -1,4 +1,4 @@
-<h1>Administración de Votaciones. Agora@US. Curso 2017-2018</h1>
+<h1>Administración de Votaciones. Curso 2017-2018</h1>
 <ul>
 <li>Ana Aparicio Ramos</li>
 <li>Javier Centeno Vega</li>
