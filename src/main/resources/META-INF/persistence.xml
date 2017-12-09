@@ -20,9 +20,9 @@
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="#{systemEnvironment.urldb}" />
-<!-- 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://10.100.148.38:3306/votaciones_splc" />
- -->
+<!-- 		<property name="javax.persistence.jdbc.url" value="#{systemEnvironment.urldb}" />
+ -->	 	<property name="javax.persistence.jdbc.url" value="jdbc:mysql://10.0.2.2:3306/votaciones_splc" />
+
 			<property name="javax.persistence.jdbc.user" value="acme-manager" />
 			<property name="javax.persistence.jdbc.password" value="ACME-M@n@ger-6874" />
 
