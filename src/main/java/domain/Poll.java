@@ -1,6 +1,7 @@
 
 package domain;
 
+import java.sql.Date;
 import java.util.Collection;
 
 import javax.persistence.Access;
@@ -28,6 +29,8 @@ public class Poll extends DomainEntity {
 
 	private String	title;
 	private String	description;
+	private Date 	startDate;
+	private Date 	endDate;
 
 
 	@NotBlank
@@ -47,10 +50,26 @@ public class Poll extends DomainEntity {
 	public void setDescription(final String description) {
 		this.description = description;
 	}
+	
+	@NotNull
+	public Date getStartDate() {
+		return startDate;
+	}
 
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	@NotNull
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
 
 	// Relationships ----------------------------------------------------------
-
 	private Collection<Question>	questions;
 	private Census					census;
 
