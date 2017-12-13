@@ -33,7 +33,9 @@ public class OptionsPerVote extends DomainEntity {
 	// Relationships ----------------------------------------------------------
 
 	private Option				option;
+	/*
 	private Vote				vote;
+	*/
 
 
 	@Valid
@@ -46,6 +48,7 @@ public class OptionsPerVote extends DomainEntity {
 		this.option = option;
 	}
 
+	/*
 	@Valid
 	@ManyToOne(optional = false)
 	public Vote getVote() {
@@ -55,4 +58,6 @@ public class OptionsPerVote extends DomainEntity {
 	public void setVote(final Vote vote) {
 		this.vote = vote;
 	}
+	*/
+
 }

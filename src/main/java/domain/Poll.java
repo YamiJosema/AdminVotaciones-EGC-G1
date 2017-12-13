@@ -52,7 +52,9 @@ public class Poll extends DomainEntity {
 	// Relationships ----------------------------------------------------------
 
 	private Collection<Question>	questions;
+	/*
 	private Census					census;
+	*/
 
 
 	@Valid
@@ -66,6 +68,7 @@ public class Poll extends DomainEntity {
 		this.questions = questions;
 	}
 
+	/*
 	@Valid
 	@ManyToOne(optional = false)
 	public Census getCensus() {
@@ -75,5 +78,6 @@ public class Poll extends DomainEntity {
 	public void setCensus(final Census census) {
 		this.census = census;
 	}
+	*/
 
 }
