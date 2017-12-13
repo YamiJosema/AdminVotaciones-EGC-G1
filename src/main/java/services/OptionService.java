@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.OptionRepository;
@@ -11,6 +12,7 @@ import domain.Option;
 import domain.Question;
 
 @Service
+@Transactional
 public class OptionService {
 
 	// Managed repository ------------------------------------------------------
@@ -23,7 +25,13 @@ public class OptionService {
 	@Autowired
 	private QuestionService questionService;
 
-	// CRUD methods ------------------------------------------------------------
+	// Constructors ------------------------------------------------------------
+
+	public OptionService() {
+		super();
+	}
+
+	// Simple CRUD methods -----------------------------------------------------
 
 	public Option create(final int questionId, final String description) {
 		final Option option = new Option();
@@ -32,13 +40,6 @@ public class OptionService {
 		option.setDescription(description);
 		this.optionRepository.saveAndFlush(option);
 		return option;
-	}
-
-	public int saveAndFlush(final Option option) {
-		Assert.notNull(option);
-		final Option _option = this.optionRepository.saveAndFlush(option);
-		final int optionId = _option.getId();
-		return optionId;
 	}
 
 	public Option findOne(final int optionId) {
@@ -54,6 +55,18 @@ public class OptionService {
 		return this.optionRepository.findAll();
 	}
 
-	// Other methods -----------------------------------------------------------
+	public int saveAndFlush(final Option option) {
+		Assert.notNull(option);
+		final Option _option = this.optionRepository.saveAndFlush(option);
+		final int optionId = _option.getId();
+		return optionId;
+	}
+
+	public void delete(final Option option) {
+		Assert.notNull(option);
+		this.optionRepository.delete(option);
+	}
+
+	// Other business methods --------------------------------------------------
 
 }

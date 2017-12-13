@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.OptionsPerVoteRepository;
@@ -11,6 +12,7 @@ import domain.Option;
 import domain.OptionsPerVote;
 
 @Service
+@Transactional
 public class OptionsPerVoteService {
 
 	// Managed repository ------------------------------------------------------
@@ -23,7 +25,13 @@ public class OptionsPerVoteService {
 	@Autowired
 	private OptionService optionService;
 
-	// CRUD methods ------------------------------------------------------------
+	// Constructors ------------------------------------------------------------
+
+	public OptionsPerVoteService() {
+		super();
+	}
+
+	// Simple CRUD methods -----------------------------------------------------
 
 	public OptionsPerVote create(final int optionId) {
 		final OptionsPerVote optionsPerVote = new OptionsPerVote();
@@ -31,13 +39,6 @@ public class OptionsPerVoteService {
 		optionsPerVote.setOption(option);
 		this.optionsPerVoteRepository.saveAndFlush(optionsPerVote);
 		return optionsPerVote;
-	}
-
-	public int saveAndFlush(final OptionsPerVote optionsPerVote) {
-		Assert.notNull(optionsPerVote);
-		final OptionsPerVote _optionsPerVote = this.optionsPerVoteRepository.saveAndFlush(optionsPerVote);
-		final int optionsPerVoteId = _optionsPerVote.getId();
-		return optionsPerVoteId;
 	}
 
 	public OptionsPerVote findOne(final int optionsPerVoteId) {
@@ -53,6 +54,19 @@ public class OptionsPerVoteService {
 		return this.optionsPerVoteRepository.findAll();
 	}
 
-	// Other methods -----------------------------------------------------------
+	public int saveAndFlush(final OptionsPerVote optionsPerVote) {
+		Assert.notNull(optionsPerVote);
+		final OptionsPerVote _optionsPerVote = this.optionsPerVoteRepository
+				.saveAndFlush(optionsPerVote);
+		final int optionsPerVoteId = _optionsPerVote.getId();
+		return optionsPerVoteId;
+	}
+
+	public void delete(final OptionsPerVote optionsPerVote) {
+		Assert.notNull(optionsPerVote);
+		this.optionsPerVoteRepository.delete(optionsPerVote);
+	}
+
+	// Other business methods --------------------------------------------------
 
 }
