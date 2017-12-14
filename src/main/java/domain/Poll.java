@@ -6,7 +6,6 @@ import java.util.Collection;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -52,7 +51,7 @@ public class Poll extends DomainEntity {
 	// Relationships ----------------------------------------------------------
 
 	private Collection<Question>	questions;
-	private Census					census;
+//	private Census					census;
 
 
 	@Valid
@@ -66,14 +65,14 @@ public class Poll extends DomainEntity {
 		this.questions = questions;
 	}
 
-	@Valid
-	@ManyToOne(optional = false)
-	public Census getCensus() {
-		return this.census;
-	}
-
-	public void setCensus(final Census census) {
-		this.census = census;
-	}
+//	@Valid
+//	@ManyToOne(optional = false)
+//	public Census getCensus() {
+//		return this.census;
+//	}
+//
+//	public void setCensus(final Census census) {
+//		this.census = census;
+//	}
 
 }
