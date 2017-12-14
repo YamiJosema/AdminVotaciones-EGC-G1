@@ -11,9 +11,9 @@
 
 	<!-- Artifact identification and properties -->
 
-	<groupId>Design-and-Testing</groupId>
+	<groupId>EGC</groupId>
 	<artifactId>CreacionAdminVotaciones</artifactId>
-	<version>1.0</version>
+	<version>1.1.1</version>
 	<packaging>war</packaging>
 
 	<properties>
