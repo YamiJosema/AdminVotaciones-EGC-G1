@@ -24,6 +24,7 @@ public class Census extends DomainEntity {
 	private String	title;
 	private String	description;
 	private Integer postalCode;
+	private Integer ca_id;
 
 	@NotBlank
 	public String getTitle() {
@@ -51,8 +52,16 @@ public class Census extends DomainEntity {
 	public void setPostalCode(Integer postalCode) {
 		this.postalCode = postalCode;
 	}
-	
 
+	@NotNull
+	public Integer getCa_id() {
+		return ca_id;
+	}
+
+	public void setCa_id(Integer ca_id) {
+		this.ca_id = ca_id;
+	}
+	
 	// Relationships ----------------------------------------------------------
 
 }

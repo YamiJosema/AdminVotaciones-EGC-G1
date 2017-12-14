@@ -74,18 +74,18 @@ public class Question extends DomainEntity {
 	}
 
 	// Relationships ----------------------------------------------------------
-	private Collection<Option>	options;
+	private Collection<Question_Option>	question_options;
 	private Poll				poll;
 
 
 	@Valid
 	@OneToMany(mappedBy = "question")
-	public Collection<Option> getOptions() {
-		return this.options;
+	public Collection<Question_Option> getOptions() {
+		return this.question_options;
 	}
 
-	public void setOptions(final Collection<Option> options) {
-		this.options = options;
+	public void setOptions(final Collection<Question_Option> options) {
+		this.question_options = options;
 	}
 
 	@Valid

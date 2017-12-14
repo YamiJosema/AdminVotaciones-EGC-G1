@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.OptionRepository;
-import domain.Option;
+import domain.Question_Option;
 import domain.Question;
 
 @Service
@@ -33,8 +33,8 @@ public class OptionService {
 
 	// Simple CRUD methods -----------------------------------------------------
 
-	public Option create(final int questionId, final String description) {
-		final Option option = new Option();
+	public Question_Option create(final int questionId, final String description) {
+		final Question_Option option = new Question_Option();
 		final Question question = this.questionService.findOne(questionId);
 		option.setQuestion(question);
 		option.setDescription(description);
@@ -42,27 +42,27 @@ public class OptionService {
 		return option;
 	}
 
-	public Option findOne(final int optionId) {
+	public Question_Option findOne(final int optionId) {
 		return this.optionRepository.findOne(optionId);
 	}
 
-	public Collection<Option> findByQuestion(final int questionId) {
+	public Collection<Question_Option> findByQuestion(final int questionId) {
 		final Question question = this.questionService.findOne(questionId);
 		return question.getOptions();
 	}
 
-	public Collection<Option> findAll() {
+	public Collection<Question_Option> findAll() {
 		return this.optionRepository.findAll();
 	}
 
-	public int saveAndFlush(final Option option) {
+	public int saveAndFlush(final Question_Option option) {
 		Assert.notNull(option);
-		final Option _option = this.optionRepository.saveAndFlush(option);
+		final Question_Option _option = this.optionRepository.saveAndFlush(option);
 		final int optionId = _option.getId();
 		return optionId;
 	}
 
-	public void delete(final Option option) {
+	public void delete(final Question_Option option) {
 		Assert.notNull(option);
 		this.optionRepository.delete(option);
 	}

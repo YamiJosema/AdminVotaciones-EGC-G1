@@ -10,7 +10,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class Option extends DomainEntity {
+public class Question_Option extends DomainEntity {
 
 	/**
 	 * @Class Option
@@ -21,7 +21,7 @@ public class Option extends DomainEntity {
 
 	// Constructors -----------------------------------------------------------
 
-	public Option() {
+	public Question_Option() {
 		super();
 	}
 
@@ -41,7 +41,7 @@ public class Option extends DomainEntity {
 
 
 	// Relationships ----------------------------------------------------------
-	private Question					question;
+	private Question question;
 
 
 	@Valid
