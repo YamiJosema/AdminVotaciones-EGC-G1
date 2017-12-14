@@ -1,13 +1,3 @@
-/*
- * PollService.java
- * 
- * Copyright (C) 2017 Universidad de Sevilla
- * 
- * The use of this project is hereby constrained to the conditions of the
- * TDG Licence, a copy of which you may download from
- * http://www.tdg-seville.info/License.html
- */
-
 package services;
 
 import java.util.Collection;
@@ -25,21 +15,20 @@ import domain.Poll;
 @Transactional
 public class PollService {
 
-	// Managed repository -----------------------------------------------------
+	// Managed repository ------------------------------------------------------
 
 	@Autowired
-	private PollRepository	pollRepository;
+	private PollRepository pollRepository;
 
+	// Supporting services -----------------------------------------------------
 
-	// Supporting services ----------------------------------------------------
-
-	// Constructors -----------------------------------------------------------
+	// Constructors ------------------------------------------------------------
 
 	public PollService() {
 		super();
 	}
 
-	// Simple CRUD methods ----------------------------------------------------
+	// Simple CRUD methods -----------------------------------------------------
 
 	public Poll create() {
 		Poll result;
@@ -52,7 +41,7 @@ public class PollService {
 		UserAccount userAccount;
 
 		userAccount = LoginService.getPrincipal();
-		//		result = this.pollRepository.findByUserAccount(userAccount);
+		// result = this.pollRepository.findByUserAccount(userAccount);
 
 		return this.findAll();
 	}
@@ -65,36 +54,36 @@ public class PollService {
 		return result;
 	}
 
-	public Collection<Poll> findAll() {
-		return this.pollRepository.findAll();
-	}
-
 	public Poll findOneToEdit(final int PollId) {
 		Poll result;
 
 		result = this.findOne(PollId);
-		//		this.checkPrincipal(result);
+		// this.checkPrincipal(result);
 
 		return result;
 	}
 
+	public Collection<Poll> findAll() {
+		return this.pollRepository.findAll();
+	}
+
 	public void save(final Poll Poll) {
-		//		this.checkPrincipal(Poll);
+		// this.checkPrincipal(Poll);
 		this.pollRepository.save(Poll);
 	}
 
 	public void delete(final Poll Poll) {
-		//		this.checkPrincipal(Poll);
+		// this.checkPrincipal(Poll);
 		this.pollRepository.delete(Poll);
 	}
 
-	// Other business methods -------------------------------------------------
+	// Other business methods --------------------------------------------------
 
-	//	protected void checkPrincipal(final Poll Poll) {
-	//		Customer customer;
+	// protected void checkPrincipal(final Poll Poll) {
+	// Customer customer;
 	//
-	//		customer = this.customerService.findByPrincipal();
-	//		Assert.isTrue(Poll.getCustomer().equals(customer));
-	//	}
+	// customer = this.customerService.findByPrincipal();
+	// Assert.isTrue(Poll.getCustomer().equals(customer));
+	// }
 
 }

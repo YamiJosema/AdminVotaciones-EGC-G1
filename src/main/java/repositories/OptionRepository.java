@@ -3,9 +3,9 @@ package repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import domain.Poll;
+import domain.Option;
 
 @Repository
-public interface PollRepository extends JpaRepository<Poll, Integer> {
+public interface OptionRepository extends JpaRepository<Option, Integer> {
 
 }
