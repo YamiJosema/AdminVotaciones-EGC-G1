@@ -50,9 +50,7 @@ public class Poll extends DomainEntity {
 	// Relationships ----------------------------------------------------------
 
 	private Collection<Question>	questions;
-	/*
-	private Census					census;
-	*/
+//	private Census					census;
 
 
 	@Valid
@@ -66,16 +64,14 @@ public class Poll extends DomainEntity {
 		this.questions = questions;
 	}
 
-	/*
-	@Valid
-	@ManyToOne(optional = false)
-	public Census getCensus() {
-		return this.census;
-	}
-
-	public void setCensus(final Census census) {
-		this.census = census;
-	}
-	*/
+//	@Valid
+//	@ManyToOne(optional = false)
+//	public Census getCensus() {
+//		return this.census;
+//	}
+//
+//	public void setCensus(final Census census) {
+//		this.census = census;
+//	}
 
 }
