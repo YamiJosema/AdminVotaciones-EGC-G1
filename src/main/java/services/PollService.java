@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.PollRepository;
-import domain.Census;
-import domain.Poll;
+import domain.census;
+import domain.poll;
 
 @Service
 @Transactional
@@ -30,21 +30,21 @@ public class PollService {
 
 	// Simple CRUD methods -----------------------------------------------------
 
-	public Poll create(Census census) {
-		Poll result = new Poll();
+	public poll create(census census) {
+		poll result = new poll();
 		result.setCensus(census);
 		return result;
 	}
 
-	public Poll findOne(final int pollId) {
+	public poll findOne(final int pollId) {
 		return this.pollRepository.findOne(pollId);
 	}
 
-	public Collection<Poll> findAll() {
+	public Collection<poll> findAll() {
 		return this.pollRepository.findAll();
 	}
 
-	public Poll save(final Poll poll) {
+	public poll save(final poll poll) {
 		Assert.notNull(poll);
 		return this.pollRepository.save(poll);
 	}

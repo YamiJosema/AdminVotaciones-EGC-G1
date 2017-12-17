@@ -10,11 +10,11 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class Census extends DomainEntity {
+public class census extends DomainEntity {
 
 	// Constructors -----------------------------------------------------------
 
-	public Census() {
+	public census() {
 		super();
 	}
 

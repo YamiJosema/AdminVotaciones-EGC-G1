@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({
-	@Type(value = Poll.class, name = "poll"), @Type(value = Question.class, name = "question")
+	@Type(value = poll.class, name = "poll"), @Type(value = question.class, name = "question")
 })
 public abstract class DomainEntity {
 

@@ -8,9 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.CensusRepository;
-import domain.Census;
-import domain.Poll;
-import domain.Question;
+import domain.census;
+import domain.poll;
+import domain.question;
 
 @Service
 @Transactional
@@ -32,11 +32,11 @@ public class CensusService {
 	// Simple CRUD methods -----------------------------------------------------
 
 
-	public Census findOne(final int censusId) {
+	public census findOne(final int censusId) {
 		return this.censusRepository.findOne(censusId);
 	}
 
-	public Collection<Census> findAll() {
+	public Collection<census> findAll() {
 		return this.censusRepository.findAll();
 	}
 

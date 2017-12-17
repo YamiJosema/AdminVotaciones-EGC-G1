@@ -1,6 +1,5 @@
 package domain;
 
-import java.sql.Date;
 import java.util.Collection;
 
 import javax.persistence.Access;
@@ -15,21 +14,27 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class Poll extends DomainEntity {
+public class question extends DomainEntity {
+
+	/**
+	 * @Class Question
+	 * @classDec La clase contiene los atributos que forman la entidad Question (pregunta), así como las relaciones
+	 *           que tiene esta entidad con el resto de entidades del dominio.
+	 * 
+	 */
 
 	// Constructors -----------------------------------------------------------
 
-	public Poll() {
+	public question() {
 		super();
 	}
-
 
 	// Attributes -------------------------------------------------------------
 
 	private String	title;
 	private String	description;
-	private Date 	startDate;
-	private Date 	endDate;
+	private Boolean optional;
+	private Boolean multiple;
 
 
 	@NotBlank
@@ -49,49 +54,47 @@ public class Poll extends DomainEntity {
 	public void setDescription(final String description) {
 		this.description = description;
 	}
-	
-	@NotNull
-	public Date getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
 
 	@NotNull
-	public Date getEndDate() {
-		return endDate;
+	public Boolean getOptional() {
+		return optional;
 	}
 
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+	public void setOptional(Boolean optional) {
+		this.optional = optional;
+	}
+
+	@NotNull
+	public Boolean getMultiple() {
+		return multiple;
+	}
+
+	public void setMultiple(Boolean multiple) {
+		this.multiple = multiple;
 	}
 
 	// Relationships ----------------------------------------------------------
-	private Collection<Question>	questions;
-	private Census					census;
+	private Collection<question_option>	question_options;
+	private poll				poll;
 
 
 	@Valid
-	@OneToMany(mappedBy = "poll")
-	@NotNull
-	public Collection<Question> getQuestions() {
-		return this.questions;
+	@OneToMany(mappedBy = "question")
+	public Collection<question_option> getOptions() {
+		return this.question_options;
 	}
 
-	public void setQuestions(final Collection<Question> questions) {
-		this.questions = questions;
+	public void setOptions(final Collection<question_option> options) {
+		this.question_options = options;
 	}
 
 	@Valid
 	@ManyToOne(optional = false)
-	public Census getCensus() {
-		return this.census;
+	public poll getPoll() {
+		return this.poll;
 	}
 
-	public void setCensus(final Census census) {
-		this.census = census;
+	public void setPoll(final poll poll) {
+		this.poll = poll;
 	}
-
 }
