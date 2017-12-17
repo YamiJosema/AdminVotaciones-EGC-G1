@@ -33,38 +33,23 @@ public class Question_OptionService {
 
 	// Simple CRUD methods -----------------------------------------------------
 
-	public Question_Option create(final int questionId, final String description) {
-		final Question_Option option = new Question_Option();
-		final Question question = this.questionService.findOne(questionId);
-		option.setQuestion(question);
-		option.setDescription(description);
-		this.optionRepository.saveAndFlush(option);
-		return option;
+	public Question_Option create(Question question) {
+		final Question_Option result = new Question_Option();
+		result.setQuestion(question);
+		return result;
 	}
 
 	public Question_Option findOne(final int optionId) {
 		return this.optionRepository.findOne(optionId);
 	}
-
-	public Collection<Question_Option> findByQuestion(final int questionId) {
-		final Question question = this.questionService.findOne(questionId);
-		return question.getOptions();
-	}
-
+	
 	public Collection<Question_Option> findAll() {
 		return this.optionRepository.findAll();
 	}
 
-	public int saveAndFlush(final Question_Option option) {
+	public Question_Option save(final Question_Option option) {
 		Assert.notNull(option);
-		final Question_Option _option = this.optionRepository.saveAndFlush(option);
-		final int optionId = _option.getId();
-		return optionId;
-	}
-
-	public void delete(final Question_Option option) {
-		Assert.notNull(option);
-		this.optionRepository.delete(option);
+		return this.optionRepository.save(option);
 	}
 
 	// Other business methods --------------------------------------------------
