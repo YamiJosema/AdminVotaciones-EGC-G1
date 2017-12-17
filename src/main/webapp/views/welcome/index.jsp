@@ -16,3 +16,7 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
+<ul>
+	<li><spring:message code="welcome.census"/> <jstl:out value="${census }"></jstl:out>
+	<li><spring:message code="welcome.poll"/> <jstl:out value="${poll }"></jstl:out>
+</ul>
