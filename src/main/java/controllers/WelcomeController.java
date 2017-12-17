@@ -3,10 +3,14 @@ package controllers;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import services.CensusService;
+import services.PollService;
 
 /**
  * @Class WelcomeController
@@ -16,7 +20,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/welcome")
 public class WelcomeController extends AbstractController {
-
+	
+	// Services
+	@Autowired
+	private CensusService censusService;
+	@Autowired	
+	private PollService	pollService;
+	
+	
 	// Constructors -----------------------------------------------------------
 	/**
 	 * @return Constructor del controlador.
@@ -44,6 +55,8 @@ public class WelcomeController extends AbstractController {
 		result = new ModelAndView("welcome/index");
 		result.addObject("name", name);
 		result.addObject("moment", moment);
+		result.addObject("census", this.censusService.findAll().size());
+		result.addObject("poll", this.pollService.findAll().size());
 
 		return result;
 	}
