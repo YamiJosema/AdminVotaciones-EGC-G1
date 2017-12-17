@@ -7,18 +7,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import repositories.OptionRepository;
+import repositories.Question_OptionRepository;
 import domain.Question_Option;
 import domain.Question;
 
 @Service
 @Transactional
-public class OptionService {
+public class Question_OptionService {
 
 	// Managed repository ------------------------------------------------------
 
 	@Autowired
-	private OptionRepository optionRepository;
+	private Question_OptionRepository optionRepository;
 
 	// Supporting services -----------------------------------------------------
 
@@ -27,7 +27,7 @@ public class OptionService {
 
 	// Constructors ------------------------------------------------------------
 
-	public OptionService() {
+	public Question_OptionService() {
 		super();
 	}
 
