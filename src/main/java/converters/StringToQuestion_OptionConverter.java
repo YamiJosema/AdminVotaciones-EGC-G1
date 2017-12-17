@@ -6,6 +6,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import repositories.Question_OptionRepository;
 import domain.Question_Option;
 
 @Component 
@@ -25,7 +26,7 @@ public class StringToQuestion_OptionConverter implements Converter<String, Quest
 				result = null; 
 			}else{ 
 				id = Integer.valueOf(text); 
-				result = question_optionsRepository.findOne(id); 
+				result = question_optionRepository.findOne(id); 
 			} 
 		}catch (Throwable oops) { 
 			throw new IllegalArgumentException(oops); 
