@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.QuestionRepository;
-import domain.Poll;
-import domain.Question;
+import domain.poll;
+import domain.question;
 
 @Service
 @Transactional
@@ -33,21 +33,21 @@ public class QuestionService {
 
 	// Simple CRUD methods -----------------------------------------------------
 
-	public Question create(final Poll poll) {
-		final Question question = new Question();
+	public question create(final poll poll) {
+		final question question = new question();
 		question.setPoll(poll);
 		return question;
 	}
 
-	public Question findOne(final int questionId) {
+	public question findOne(final int questionId) {
 		return this.questionRepository.findOne(questionId);
 	}
 
-	public Collection<Question> findAll() {
+	public Collection<question> findAll() {
 		return this.questionRepository.findAll();
 	}
 
-	public Question save(final Question question) {
+	public question save(final question question) {
 		Assert.notNull(question);
 		return this.questionRepository.save(question);
 	}

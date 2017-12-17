@@ -4,14 +4,14 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import domain.Question_Option;
+import domain.question_option;
 
 @Component 
 @Transactional 
-public class Question_OptionToStringConverter implements Converter<Question_Option, String>{ 
+public class Question_OptionToStringConverter implements Converter<question_option, String>{ 
 
 	@Override 
-	public String convert(Question_Option question_option){ 
+	public String convert(question_option question_option){ 
 		String result; 
 		if(question_option == null){ 
 			result = null; 

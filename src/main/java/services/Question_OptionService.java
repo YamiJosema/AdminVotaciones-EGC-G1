@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.Question_OptionRepository;
-import domain.Question_Option;
-import domain.Question;
+import domain.question_option;
+import domain.question;
 
 @Service
 @Transactional
@@ -33,21 +33,21 @@ public class Question_OptionService {
 
 	// Simple CRUD methods -----------------------------------------------------
 
-	public Question_Option create(Question question) {
-		final Question_Option result = new Question_Option();
+	public question_option create(question question) {
+		final question_option result = new question_option();
 		result.setQuestion(question);
 		return result;
 	}
 
-	public Question_Option findOne(final int optionId) {
+	public question_option findOne(final int optionId) {
 		return this.optionRepository.findOne(optionId);
 	}
 	
-	public Collection<Question_Option> findAll() {
+	public Collection<question_option> findAll() {
 		return this.optionRepository.findAll();
 	}
 
-	public Question_Option save(final Question_Option option) {
+	public question_option save(final question_option option) {
 		Assert.notNull(option);
 		return this.optionRepository.save(option);
 	}

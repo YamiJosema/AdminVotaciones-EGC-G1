@@ -4,14 +4,14 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import domain.Poll;
+import domain.poll;
 
 @Component 
 @Transactional 
-public class PollToStringConverter implements Converter<Poll, String>{ 
+public class PollToStringConverter implements Converter<poll, String>{ 
 
 	@Override 
-	public String convert(Poll poll){ 
+	public String convert(poll poll){ 
 		String result; 
 		if(poll == null){ 
 			result = null; 
