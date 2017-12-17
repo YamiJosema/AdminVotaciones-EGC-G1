@@ -22,7 +22,6 @@ public class census extends DomainEntity {
 	// Attributes -------------------------------------------------------------
 
 	private String	title;
-	private String	description;
 	private Integer postalCode;
 	private Integer ca_id;
 
@@ -33,15 +32,6 @@ public class census extends DomainEntity {
 
 	public void setTitle(final String title) {
 		this.title = title;
-	}
-
-	@NotBlank
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(final String description) {
-		this.description = description;
 	}
 
 	@NotNull
