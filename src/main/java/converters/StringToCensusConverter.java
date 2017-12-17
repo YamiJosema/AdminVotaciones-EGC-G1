@@ -7,18 +7,18 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import repositories.CensusRepository;
-import domain.Census;
+import domain.census;
 
 @Component 
 @Transactional 
-public class StringToCensusConverter implements Converter<String, Census>{ 
+public class StringToCensusConverter implements Converter<String, census>{ 
 
 	@Autowired 
 	CensusRepository censusRepository; 
 
 	@Override 
-	public Census convert(String text){ 
-		Census result; 
+	public census convert(String text){ 
+		census result; 
 		int id; 
 
 		try{ 

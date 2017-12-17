@@ -7,18 +7,18 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import repositories.PollRepository;
-import domain.Poll;
+import domain.poll;
 
 @Component 
 @Transactional 
-public class StringToPollConverter implements Converter<String, Poll>{ 
+public class StringToPollConverter implements Converter<String, poll>{ 
 
 	@Autowired 
 	PollRepository pollRepository; 
 
 	@Override 
-	public Poll convert(String text){ 
-		Poll result; 
+	public poll convert(String text){ 
+		poll result; 
 		int id; 
 
 		try{ 

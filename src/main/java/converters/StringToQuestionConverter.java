@@ -7,18 +7,18 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional; 
 
 import repositories.QuestionRepository; 
-import domain.Question; 
+import domain.question; 
 
 @Component 
 @Transactional 
-public class StringToQuestionConverter implements Converter<String, Question>{ 
+public class StringToQuestionConverter implements Converter<String, question>{ 
 
 	@Autowired 
 	QuestionRepository questionRepository; 
 
 	@Override 
-	public Question convert(String text){ 
-		Question result; 
+	public question convert(String text){ 
+		question result; 
 		int id; 
 
 		try{ 

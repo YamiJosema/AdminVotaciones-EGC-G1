@@ -4,14 +4,14 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import domain.Census;
+import domain.census;
 
 @Component 
 @Transactional 
-public class CensusToStringConverter implements Converter<Census, String>{ 
+public class CensusToStringConverter implements Converter<census, String>{ 
 
 	@Override 
-	public String convert(Census census){ 
+	public String convert(census census){ 
 		String result; 
 		if(census == null){ 
 			result = null; 
