@@ -1,4 +1,3 @@
-
 package domain;
 
 import java.util.Collection;
@@ -9,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -29,11 +29,12 @@ public class Question extends DomainEntity {
 		super();
 	}
 
-
 	// Attributes -------------------------------------------------------------
 
 	private String	title;
 	private String	description;
+	private Boolean optional;
+	private Boolean multiple;
 
 
 	@NotBlank
@@ -54,21 +55,37 @@ public class Question extends DomainEntity {
 		this.description = description;
 	}
 
+	@NotNull
+	public Boolean getOptional() {
+		return optional;
+	}
+
+	public void setOptional(Boolean optional) {
+		this.optional = optional;
+	}
+
+	@NotNull
+	public Boolean getMultiple() {
+		return multiple;
+	}
+
+	public void setMultiple(Boolean multiple) {
+		this.multiple = multiple;
+	}
 
 	// Relationships ----------------------------------------------------------
-
-	private Collection<Option>	options;
+	private Collection<Question_Option>	question_options;
 	private Poll				poll;
 
 
 	@Valid
 	@OneToMany(mappedBy = "question")
-	public Collection<Option> getOptions() {
-		return this.options;
+	public Collection<Question_Option> getOptions() {
+		return this.question_options;
 	}
 
-	public void setOptions(final Collection<Option> options) {
-		this.options = options;
+	public void setOptions(final Collection<Question_Option> options) {
+		this.question_options = options;
 	}
 
 	@Valid

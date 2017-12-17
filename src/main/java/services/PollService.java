@@ -1,13 +1,3 @@
-/*
- * PollService.java
- * 
- * Copyright (C) 2017 Universidad de Sevilla
- * 
- * The use of this project is hereby constrained to the conditions of the
- * TDG Licence, a copy of which you may download from
- * http://www.tdg-seville.info/License.html
- */
-
 package services;
 
 import java.util.Collection;
@@ -15,86 +5,50 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import repositories.PollRepository;
-import security.LoginService;
-import security.UserAccount;
+import domain.Census;
 import domain.Poll;
 
 @Service
 @Transactional
 public class PollService {
 
-	// Managed repository -----------------------------------------------------
+	// Managed repository ------------------------------------------------------
 
 	@Autowired
-	private PollRepository	pollRepository;
+	private PollRepository pollRepository;
 
+	// Supporting services -----------------------------------------------------
 
-	// Supporting services ----------------------------------------------------
-
-	// Constructors -----------------------------------------------------------
+	// Constructors ------------------------------------------------------------
 
 	public PollService() {
 		super();
 	}
 
-	// Simple CRUD methods ----------------------------------------------------
+	// Simple CRUD methods -----------------------------------------------------
 
-	public Poll create() {
-		Poll result;
-		result = new Poll();
+	public Poll create(Census census) {
+		Poll result = new Poll();
+		result.setCensus(census);
 		return result;
-	}
-
-	public Collection<Poll> findByPrincipal() {
-		final Collection<Poll> result;
-		UserAccount userAccount;
-
-		userAccount = LoginService.getPrincipal();
-		//		result = this.pollRepository.findByUserAccount(userAccount);
-
-		return this.findAll();
 	}
 
 	public Poll findOne(final int pollId) {
-		Poll result;
-
-		result = this.pollRepository.findOne(pollId);
-
-		return result;
+		return this.pollRepository.findOne(pollId);
 	}
 
 	public Collection<Poll> findAll() {
 		return this.pollRepository.findAll();
 	}
 
-	public Poll findOneToEdit(final int PollId) {
-		Poll result;
-
-		result = this.findOne(PollId);
-		//		this.checkPrincipal(result);
-
-		return result;
+	public Poll save(final Poll poll) {
+		Assert.notNull(poll);
+		return this.pollRepository.save(poll);
 	}
 
-	public void save(final Poll Poll) {
-		//		this.checkPrincipal(Poll);
-		this.pollRepository.save(Poll);
-	}
-
-	public void delete(final Poll Poll) {
-		//		this.checkPrincipal(Poll);
-		this.pollRepository.delete(Poll);
-	}
-
-	// Other business methods -------------------------------------------------
-
-	//	protected void checkPrincipal(final Poll Poll) {
-	//		Customer customer;
-	//
-	//		customer = this.customerService.findByPrincipal();
-	//		Assert.isTrue(Poll.getCustomer().equals(customer));
-	//	}
+	// Other business methods --------------------------------------------------
 
 }

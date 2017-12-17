@@ -7,51 +7,38 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import repositories.QuestionRepository;
+import repositories.CensusRepository;
+import domain.Census;
 import domain.Poll;
 import domain.Question;
 
 @Service
 @Transactional
-public class QuestionService {
+public class CensusService {
 
 	// Managed repository ------------------------------------------------------
 
 	@Autowired
-	private QuestionRepository questionRepository;
+	private CensusRepository censusRepository;
 
 	// Supporting services -----------------------------------------------------
 
-	@Autowired
-	private PollService pollService;
-
 	// Constructors ------------------------------------------------------------
 
-	public QuestionService() {
+	public CensusService() {
 		super();
 	}
 
 	// Simple CRUD methods -----------------------------------------------------
 
-	public Question create(final Poll poll) {
-		final Question question = new Question();
-		question.setPoll(poll);
-		return question;
+
+	public Census findOne(final int censusId) {
+		return this.censusRepository.findOne(censusId);
 	}
 
-	public Question findOne(final int questionId) {
-		return this.questionRepository.findOne(questionId);
+	public Collection<Census> findAll() {
+		return this.censusRepository.findAll();
 	}
-
-	public Collection<Question> findAll() {
-		return this.questionRepository.findAll();
-	}
-
-	public Question save(final Question question) {
-		Assert.notNull(question);
-		return this.questionRepository.save(question);
-	}
-
 
 	// Other business methods --------------------------------------------------
 
