@@ -33,12 +33,9 @@ public class QuestionService {
 
 	// Simple CRUD methods -----------------------------------------------------
 
-	public Question create(final Integer pollId, final String description) {
+	public Question create(final Poll poll) {
 		final Question question = new Question();
-		final Poll poll = this.pollService.findOne(pollId);
 		question.setPoll(poll);
-		question.setDescription(description);
-		this.questionRepository.saveAndFlush(question);
 		return question;
 	}
 
@@ -46,36 +43,15 @@ public class QuestionService {
 		return this.questionRepository.findOne(questionId);
 	}
 
-	public Question findOneToEdit(final int questionId) {
-		Question result;
-
-		result = this.findOne(questionId);
-		// this.checkPrincipal(result);
-
-		return result;
-	}
-
-	public Collection<Question> findByPoll(final int pollId) {
-		final Poll poll = this.pollService.findOne(pollId);
-		return poll.getQuestions();
-	}
-
 	public Collection<Question> findAll() {
 		return this.questionRepository.findAll();
 	}
 
-	public int saveAndFlush(final Question question) {
+	public Question save(final Question question) {
 		Assert.notNull(question);
-		final Question _question = this.questionRepository
-				.saveAndFlush(question);
-		final int questionID = _question.getId();
-		return questionID;
+		return this.questionRepository.save(question);
 	}
 
-	public void delete(final Question question) {
-		Assert.notNull(question);
-		this.questionRepository.delete(question);
-	}
 
 	// Other business methods --------------------------------------------------
 
