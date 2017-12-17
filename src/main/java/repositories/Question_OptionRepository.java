@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import domain.Question_Option;
 
 @Repository
-public interface OptionRepository extends JpaRepository<Question_Option, Integer> {
+public interface Question_OptionRepository extends JpaRepository<Question_Option, Integer> {
 
 }
