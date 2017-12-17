@@ -1,20 +1,16 @@
-
 package domain;
-
-import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class Option extends DomainEntity {
+public class Question_Option extends DomainEntity {
 
 	/**
 	 * @Class Option
@@ -25,10 +21,9 @@ public class Option extends DomainEntity {
 
 	// Constructors -----------------------------------------------------------
 
-	public Option() {
+	public Question_Option() {
 		super();
 	}
-
 
 	// Attributes -------------------------------------------------------------
 
@@ -46,9 +41,7 @@ public class Option extends DomainEntity {
 
 
 	// Relationships ----------------------------------------------------------
-
-	private Question					question;
-	private Collection<OptionsPerVote>	optionsPerVotes;
+	private Question question;
 
 
 	@Valid
@@ -61,13 +54,4 @@ public class Option extends DomainEntity {
 		this.question = question;
 	}
 
-	@Valid
-	@OneToMany(mappedBy = "option")
-	public Collection<OptionsPerVote> getOptionsPerVotes() {
-		return this.optionsPerVotes;
-	}
-
-	public void setOptionsPerVotes(final Collection<OptionsPerVote> optionsPerVotes) {
-		this.optionsPerVotes = optionsPerVotes;
-	}
 }

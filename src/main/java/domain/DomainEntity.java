@@ -18,7 +18,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
@@ -43,7 +42,7 @@ public abstract class DomainEntity {
 	// Identification ---------------------------------------------------------
 
 	private int	id;
-	private int	version;
+//	private int	version;
 
 
 	@Id
@@ -56,14 +55,14 @@ public abstract class DomainEntity {
 		this.id = id;
 	}
 
-	@Version
-	public int getVersion() {
-		return this.version;
-	}
-
-	public void setVersion(final int version) {
-		this.version = version;
-	}
+//	@Version
+//	public int getVersion() {
+//		return this.version;
+//	}
+//
+//	public void setVersion(final int version) {
+//		this.version = version;
+//	}
 
 	// Equality ---------------------------------------------------------------
 
