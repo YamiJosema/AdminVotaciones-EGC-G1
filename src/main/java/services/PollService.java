@@ -1,3 +1,4 @@
+
 package services;
 
 import java.util.Collection;
@@ -8,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.PollRepository;
-import domain.census;
 import domain.poll;
 
 @Service
@@ -18,7 +18,8 @@ public class PollService {
 	// Managed repository ------------------------------------------------------
 
 	@Autowired
-	private PollRepository pollRepository;
+	private PollRepository	pollRepository;
+
 
 	// Supporting services -----------------------------------------------------
 
@@ -30,9 +31,8 @@ public class PollService {
 
 	// Simple CRUD methods -----------------------------------------------------
 
-	public poll create(census census) {
-		poll result = new poll();
-		result.setCensus(census);
+	public poll create() {
+		final poll result = new poll();
 		return result;
 	}
 
