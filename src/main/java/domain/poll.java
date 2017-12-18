@@ -30,6 +30,8 @@ public class poll extends DomainEntity {
 	private String	description;
 	private Date 	startDate;
 	private Date 	endDate;
+	private int 	participantes_admitidos;
+	private int		votos_actuales;
 
 
 	@NotBlank
@@ -67,6 +69,23 @@ public class poll extends DomainEntity {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+	
+	public int getParticipantes_admitidos() {
+		return participantes_admitidos;
+	}
+
+	public void setParticipantes_admitidos(int participantes_admitidos) {
+		this.participantes_admitidos = participantes_admitidos;
+	}
+
+	public int getVotos_actuales() {
+		return votos_actuales;
+	}
+
+	public void setVotos_actuales(int votos_actuales) {
+		this.votos_actuales = votos_actuales;
+	}
+
 
 	// Relationships ----------------------------------------------------------
 	private Collection<question>	questions;

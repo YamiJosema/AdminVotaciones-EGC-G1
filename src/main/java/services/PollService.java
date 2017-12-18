@@ -33,6 +33,9 @@ public class PollService {
 	public poll create(census census) {
 		poll result = new poll();
 		result.setCensus(census);
+		result.setParticipantes_admitidos(0);
+		result.setVotos_actuales(0);
+		
 		return result;
 	}
 
