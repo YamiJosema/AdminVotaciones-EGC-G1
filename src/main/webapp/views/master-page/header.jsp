@@ -42,7 +42,7 @@
 				<div class="collapse navbar-collapse" id="navbar-1">
 					<ul class="nav navbar-nav">
 						<li><a href="https://recuento.agoraus1.egc.duckdns.org/views/verVotaciones.html"><spring:message code="master.page.list" /></a></li>
-						<li><a href="vote/create.do"><spring:message code="master.page.create">	</spring:message></a></li>
+						<li><a href="poll/create.do"><spring:message code="master.page.create">	</spring:message></a></li>
 						<li><a href="https://authb.agoraus1.egc.duckdns.org/index.php"><spring:message	code="master.page.censo"></spring:message></a></li>
 					
 					</ul>

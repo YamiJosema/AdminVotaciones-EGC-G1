@@ -36,7 +36,7 @@
 		<security:intercept-url pattern="/styles/**" access="permitAll" /> 
 		<security:intercept-url pattern="/vote/**" access="permitAll" /> 
 		<security:intercept-url pattern="/welcome/**" access="permitAll"/>
-		
+		<security:intercept-url pattern="/poll/**" access="permitAll"/>
 		
 		<security:intercept-url pattern="/views/misc/index.jsp" access="permitAll" /> 
 
