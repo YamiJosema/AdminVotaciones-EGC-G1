@@ -42,7 +42,11 @@
 				<div class="collapse navbar-collapse" id="navbar-1">
 					<ul class="nav navbar-nav">
 						<li><a href=""><spring:message code="master.page.login" /></a></li>
-						<li><a href=""><spring:message code="master.page.amdvotes"/></a></li>
+						<li><a href=""><spring:message code="master.page.amdvotes"/></a>
+							<ul>
+								<li><a href="poll/create.do"><spring:message code="welcome.poll.create"/></a></li>
+            				</ul>
+            			</li>
 						<li><a href=""><spring:message	code="master.page.amdcensos"/></a></li>
 						<li><a href=""><spring:message	code="master.page.cabina"/></a></li>
 						<li><a href=""><spring:message	code="master.page.visualizar"/></a></li>
