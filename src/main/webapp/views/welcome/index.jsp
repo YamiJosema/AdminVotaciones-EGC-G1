@@ -20,3 +20,5 @@
 	<li><spring:message code="welcome.census"/> <jstl:out value="${census }"></jstl:out>
 	<li><spring:message code="welcome.poll"/> <jstl:out value="${poll }"></jstl:out>
 </ul>
+
+<h3><a href="poll/create.do"><spring:message code="welcome.poll.create"/></a></h3>
