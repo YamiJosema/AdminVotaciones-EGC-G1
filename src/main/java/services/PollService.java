@@ -31,8 +31,12 @@ public class PollService {
 
 	// Simple CRUD methods -----------------------------------------------------
 
+  // public poll create(census census) {
 	public poll create() {
 		final poll result = new poll();
+	// result.setCensus(census);
+		result.setParticipantes_admitidos(0);
+		result.setVotos_actuales(0);
 		return result;
 	}
 

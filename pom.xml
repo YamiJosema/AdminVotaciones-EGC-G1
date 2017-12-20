@@ -12,7 +12,7 @@
 	<!-- Artifact identification and properties -->
 
 	<groupId>EGC</groupId>
-	<artifactId>CreacionAdminVotaciones</artifactId>
+	<artifactId>admvotes</artifactId>
 	<version>1.1.1</version>
 	<packaging>war</packaging>
 
@@ -22,9 +22,9 @@
 
 	<!-- Indexing information -->
 
-	<name>CreacionAdminVotaciones Project</name>
+	<name>admvotes Project</name>
 	<url>http://www.creacio-nadministracion-votaciones.com</url>
-	<description>This is D&amp;T's CreacionAdminVotaciones Project.</description>
+	<description>This is D&amp;T's admvotes Project.</description>
 
 	<!-- Build commands -->
 

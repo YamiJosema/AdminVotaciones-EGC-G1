@@ -2,6 +2,6 @@ package utilities;
 
 public interface DatabaseConfig {
 
-	public final String PersistenceUnit = "CreacionAdminVotaciones";
+	public final String PersistenceUnit = "admvotes";
 	
 }
