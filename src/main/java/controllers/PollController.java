@@ -51,9 +51,10 @@ public class PollController extends AbstractController {
 	// Creation ---------------------------------------------------------------
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public ModelAndView list() {
+	public ModelAndView create() {
 		ModelAndView result;
-		final poll poll = this.pollService.create();
+		census c = new census();
+		final poll poll = this.pollService.create(c);
 
 		result = this.createEditModelAndView(poll);
 
@@ -67,13 +68,13 @@ public class PollController extends AbstractController {
 		if (binding.hasErrors())
 			result = this.createEditModelAndView(poll);
 		else
-			try {
+//			try {
 				this.pollService.save(poll);
 				result = new ModelAndView("redirect:/");
-			} catch (final Throwable oops) {
-				System.out.println(oops.getCause());
-				result = this.createEditModelAndView(poll, "sponsorship.commit.error");
-			}
+//			} catch (final Throwable oops) {
+//				System.out.println(oops.getCause());
+//				result = this.createEditModelAndView(poll, "sponsorship.commit.error");
+//			}
 
 		return result;
 	}

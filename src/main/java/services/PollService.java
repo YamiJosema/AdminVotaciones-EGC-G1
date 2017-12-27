@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.PollRepository;
+import domain.census;
 import domain.poll;
 
 @Service
@@ -32,9 +33,9 @@ public class PollService {
 	// Simple CRUD methods -----------------------------------------------------
 
   // public poll create(census census) {
-	public poll create() {
+	public poll create(census census) {
 		final poll result = new poll();
-	// result.setCensus(census);
+		result.setCensus(census);
 		result.setParticipantes_admitidos(0);
 		result.setVotos_actuales(0);
 		return result;
