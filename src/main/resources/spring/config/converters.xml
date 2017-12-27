@@ -18,6 +18,17 @@
 	">
 
 	<util:list id="converters">
+		<bean class="converters.CensusToStringConverter" />
+		<bean class="converters.StringToCensusConverter" />
+		
+		<bean class="converters.PollToStringConverter" />
+		<bean class="converters.StringToPollConverter" />
+		
+		<bean class="converters.QuestionToStringConverter" />
+		<bean class="converters.StringToQuestionConverter" />
+		
+		<bean class="converters.Question_OptionToStringConverter" />
+		<bean class="converters.StringToQuestion_OptionConverter" />
 		
 	</util:list>
 	

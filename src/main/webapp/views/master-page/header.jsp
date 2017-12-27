@@ -37,14 +37,19 @@
 						<span class="icon-bar"></span>
 					</button>
 					
-					<a href="https://authb.agoraus1.egc.duckdns.org/"  class="navbar-brand">AgoraUS</a>
+					<a href="https://authb.agoraus1.egc.duckdns.org/"  class="navbar-brand">Home</a>
 				</div>
 				<div class="collapse navbar-collapse" id="navbar-1">
 					<ul class="nav navbar-nav">
-						<li><a href="https://recuento.agoraus1.egc.duckdns.org/views/verVotaciones.html"><spring:message code="master.page.list" /></a></li>
-						<li><a href="vote/create.do"><spring:message code="master.page.create">	</spring:message></a></li>
-						<li><a href="https://authb.agoraus1.egc.duckdns.org/index.php"><spring:message	code="master.page.censo"></spring:message></a></li>
-					
+						<li><a href=""><spring:message code="master.page.login" /></a></li>
+						<li><a href=""><spring:message code="master.page.amdvotes"/></a>
+							<ul>
+								<li><a href="poll/create.do"><spring:message code="welcome.poll.create"/></a></li>
+            				</ul>
+            			</li>
+						<li><a href=""><spring:message	code="master.page.amdcensos"/></a></li>
+						<li><a href=""><spring:message	code="master.page.cabina"/></a></li>
+						<li><a href=""><spring:message	code="master.page.visualizar"/></a></li>
 					</ul>
 				</div>
 			</div>
@@ -53,8 +58,7 @@
 	</header>
 	<section class="jumbotron " >
 		<div class="container">
-			<h1 class="jumbotron-text">Agor@US</h1>
-			<h4 class="jumbotron-text">Administración de votos<span class="glyphicon glyphicon-envelope"></span></h4>
+			<h4 class="jumbotron-text"><spring:message code="master.page.amdvotes"/></span></h4>
 		</div>
 	
 	</section>

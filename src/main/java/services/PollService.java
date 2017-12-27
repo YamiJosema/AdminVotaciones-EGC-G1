@@ -1,3 +1,4 @@
+
 package services;
 
 import java.util.Collection;
@@ -18,7 +19,8 @@ public class PollService {
 	// Managed repository ------------------------------------------------------
 
 	@Autowired
-	private PollRepository pollRepository;
+	private PollRepository	pollRepository;
+
 
 	// Supporting services -----------------------------------------------------
 
@@ -30,9 +32,12 @@ public class PollService {
 
 	// Simple CRUD methods -----------------------------------------------------
 
+  // public poll create(census census) {
 	public poll create(census census) {
-		poll result = new poll();
+		final poll result = new poll();
 		result.setCensus(census);
+		result.setParticipantes_admitidos(0);
+		result.setVotos_actuales(0);
 		return result;
 	}
 
