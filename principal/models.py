@@ -32,7 +32,7 @@ class Poll(models.Model):
 
 class Question(models.Model):
     id = models.IntegerField(unique=True, null=False, primary_key=True)
-    title = models.CharField(max_length=100, null=False, balnk=False)
+    title = models.CharField(max_length=100, null=False, blank=False)
     description = models.CharField(max_length=500, null=False, blank=True)
     optional = models.BooleanField()
     multiple = models.BooleanField()
