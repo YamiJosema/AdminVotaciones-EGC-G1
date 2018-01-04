@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+	<h2>Lista de Votaciones</h2>
+	<hr>
+		{% for dato in votaciones %}
+			<h3>Titulo: {{dato.title}}</h3>
+			<p>Descripcion: {{dato.description}}</p>
+			<hr>
+		{% empty %}
+			<li>No hay votaciones que mostrar.</li>
+		{% endfor %}
+{% endblock %}
+	
