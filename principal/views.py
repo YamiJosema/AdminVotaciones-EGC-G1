@@ -10,4 +10,5 @@ from django.template import RequestContext
 
 
 def inicio(request):
-    return render_to_response("base.html",)
+    votaciones = Poll.objects.all()
+    return render_to_response("lista.html",{"votaciones":votaciones})
