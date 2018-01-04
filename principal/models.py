@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import default
 
 class Ca(models.Model):
     id = models.IntegerField(primary_key=True, unique=True, null=False)
@@ -25,6 +26,8 @@ class Poll(models.Model):
     startDate = models.DateField(null=False, db_column='startDate')
     endDate = models.DateField(null=False, db_column='endDate') 
     census = models.ForeignKey(Census)
+    participantes = models.IntegerField(null=False, default=0, db_column='participantes_admitidos')
+    votos = models.IntegerField(null=False, default=0, db_column='votos_actuales')
     class Meta:
         db_table = 'poll'
     def __unicode__(self):
