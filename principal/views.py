@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 
+from datetime import datetime
+
 
 def inicio(request):
     votaciones = Poll.objects.all()
@@ -23,3 +25,8 @@ def nueva_votacion(request):
     else:
         formulario = PollForm()
     return render_to_response('nuevavotacion.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+def votaciones_futuras(request):
+    now = datetime.today().date()    
+    votaciones = Poll.objects.filter(startDate__range=[now, "2050-01-31"])
+    return render_to_response("lista.html",{"votaciones":votaciones, "preguntas":True})
