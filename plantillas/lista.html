@@ -7,6 +7,9 @@
 		{% for dato in votaciones %}
 			<h3>Titulo: {{dato.title}}</h3>
 			<p>Descripcion: {{dato.description}}</p>
+			{% if preguntas %}
+				 <a href="/nuevapregunta/{{dato.id}}">Nueva Pregunta</a>
+			{% endif %}
 			<hr>
 		{% empty %}
 			<li>No hay votaciones que mostrar.</li>
