@@ -8,6 +8,8 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'principal.views.inicio', name='inicio'),
     url(r'^nuevavotacion/','principal.views.nueva_votacion'),
+    url(r'^votacionesfuturas/','principal.views.votaciones_futuras'),
+    url(r'^nuevapregunta/(?P<poll_id>\d+)/','principal.views.nueva_pregunta'),
     # url(r'^admvotes/', include('admvotes.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
